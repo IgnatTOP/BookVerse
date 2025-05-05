@@ -12,7 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import * as solidIcons from '@heroicons/vue/24/solid';
 import * as outlineIcons from '@heroicons/vue/24/outline';
 
