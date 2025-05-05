@@ -1,0 +1,118 @@
+@use '../base/variables' as *;
+@use "sass:color";
+
+:root {
+  // Цвета
+  --color-background: #{$color-neutral-50};
+  --color-text: #{$color-neutral-800};
+  --color-text-light: #{$color-neutral-600};
+  --color-text-muted: #{$color-neutral-500};
+  --color-primary: #{$color-primary};
+  --color-primary-light: #{$color-primary-light};
+  --color-primary-dark: #{color.adjust($color-primary, $lightness: -10%)};
+  --color-secondary: #{$color-secondary};
+  --color-secondary-light: #{$color-secondary-light};
+  --color-secondary-dark: #{color.adjust($color-secondary, $lightness: -10%)};
+  --color-accent: #{$color-accent};
+  --color-accent-light: #{color.adjust($color-accent, $lightness: 10%)};
+  --color-accent-dark: #{color.adjust($color-accent, $lightness: -10%)};
+  --color-success: #{$color-success};
+  --color-success-light: #{color.adjust($color-success, $lightness: 10%)};
+  --color-success-dark: #{color.adjust($color-success, $lightness: -10%)};
+  --color-error: #{$color-error};
+  --color-error-light: #{color.adjust($color-error, $lightness: 10%)};
+  --color-error-dark: #{color.adjust($color-error, $lightness: -10%)};
+  --color-warning: #{$color-warning};
+  --color-warning-light: #{color.adjust($color-warning, $lightness: 10%)};
+  --color-warning-dark: #{color.adjust($color-warning, $lightness: -10%)};
+  --color-info: #{$color-info};
+  --color-info-light: #{color.adjust($color-info, $lightness: 10%)};
+  --color-info-dark: #{color.adjust($color-info, $lightness: -10%)};
+  
+  // Поверхности
+  --color-surface: #ffffff;
+  --color-surface-hover: #{color.adjust($color-neutral-100, $alpha: -0.4)};
+  --color-surface-active: #{color.adjust($color-neutral-200, $alpha: -0.2)};
+  --color-border: #{$color-neutral-200};
+  --color-divider: #{$color-neutral-200};
+  --color-card: #ffffff;
+  
+  // Интерактивные элементы
+  --color-focus-ring: rgba(98, 0, 238, 0.35);
+  --color-shadow: rgba(0, 0, 0, 0.08);
+  --color-input-background: #ffffff;
+  --color-input-border: #{$color-neutral-300};
+  --color-input-disabled: #{$color-neutral-100};
+  
+  // Скругления
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius-md: #{$border-radius-md};
+  --border-radius-lg: #{$border-radius-lg};
+  --border-radius-xl: #{$border-radius-xl};
+  
+  // Тени
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.14);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.16);
+  
+  // Градиенты
+  --gradient-primary: linear-gradient(135deg, #{$color-primary}, #{color.adjust($color-primary, $lightness: -20%)});
+  --gradient-secondary: linear-gradient(135deg, #{$color-secondary}, #{color.adjust($color-secondary, $lightness: -15%)});
+  --gradient-accent: linear-gradient(135deg, #{$color-accent}, #{color.adjust($color-accent, $lightness: -15%)});
+}
+
+[data-theme='dark'] {
+  // Цвета
+  --color-background: #{$color-dark};
+  --color-text: #{$color-neutral-100};
+  --color-text-light: #{$color-neutral-300};
+  --color-text-muted: #{$color-neutral-400};
+  --color-primary: #{$color-primary-light};
+  --color-primary-light: #{color.adjust($color-primary-light, $lightness: 10%)};
+  --color-primary-dark: #{$color-primary};
+  --color-secondary: #{$color-secondary-light};
+  --color-secondary-light: #{color.adjust($color-secondary-light, $lightness: 10%)};
+  --color-secondary-dark: #{$color-secondary};
+  --color-accent: #{$color-accent};
+  --color-accent-light: #{color.adjust($color-accent, $lightness: 10%)};
+  --color-accent-dark: #{color.adjust($color-accent, $lightness: -10%)};
+  --color-success: #{color.adjust($color-success, $lightness: 5%)};
+  --color-success-light: #{color.adjust($color-success, $lightness: 15%)};
+  --color-success-dark: #{$color-success};
+  --color-error: #{color.adjust($color-error, $lightness: 5%)};
+  --color-error-light: #{color.adjust($color-error, $lightness: 15%)};
+  --color-error-dark: #{$color-error};
+  --color-warning: #{color.adjust($color-warning, $lightness: 5%)};
+  --color-warning-light: #{color.adjust($color-warning, $lightness: 15%)};
+  --color-warning-dark: #{$color-warning};
+  --color-info: #{color.adjust($color-info, $lightness: 5%)};
+  --color-info-light: #{color.adjust($color-info, $lightness: 15%)};
+  --color-info-dark: #{$color-info};
+  
+  // Поверхности
+  --color-surface: #{color.adjust($color-neutral-800, $lightness: -2%)};
+  --color-surface-hover: #{$color-neutral-700};
+  --color-surface-active: #{$color-neutral-600};
+  --color-border: #{$color-neutral-700};
+  --color-divider: #{$color-neutral-700};
+  --color-card: #{color.adjust($color-neutral-800, $lightness: -3%)};
+  
+  // Интерактивные элементы
+  --color-focus-ring: rgba(156, 100, 255, 0.4);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-input-background: #{color.adjust($color-neutral-800, $lightness: -2%)};
+  --color-input-border: #{$color-neutral-700};
+  --color-input-disabled: #{$color-neutral-800};
+  
+  // Тени
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.16);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.24);
+  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.28);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.32);
+  
+  // Градиенты
+  --gradient-primary: linear-gradient(135deg, #{$color-primary-light}, #{$color-primary});
+  --gradient-secondary: linear-gradient(135deg, #{$color-secondary-light}, #{$color-secondary});
+  --gradient-accent: linear-gradient(135deg, #{$color-accent}, #{color.adjust($color-accent, $lightness: -15%)});
+} 

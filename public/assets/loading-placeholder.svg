@@ -1,0 +1,15 @@
+<svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="300" fill="#f5f5f5"/>
+  <circle cx="100" cy="150" r="30" fill="none" stroke="#cccccc" stroke-width="5"/>
+  <path d="M100 120 L100 100" stroke="#cccccc" stroke-width="5" stroke-linecap="round">
+    <animateTransform 
+      attributeName="transform" 
+      attributeType="XML" 
+      type="rotate" 
+      from="0 100 150" 
+      to="360 100 150" 
+      dur="1s" 
+      repeatCount="indefinite"/>
+  </path>
+  <text x="100" y="200" text-anchor="middle" fill="#999999" font-family="Arial, sans-serif" font-size="12">Загрузка...</text>
+</svg> 

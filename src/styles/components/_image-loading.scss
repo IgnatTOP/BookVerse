@@ -1,0 +1,67 @@
+// Image loading placeholder styles
+
+[v-lazy-image] {
+  // Базовый стиль placeholder
+  &:not([src]), 
+  &[src=""],
+  &[src="data:,"] {
+    background-color: #f5f5f5;
+    min-height: 150px;
+    background-image: linear-gradient(
+      90deg,
+      #f5f5f5 0%,
+      #f0f0f0 20%,
+      #f5f5f5 40%,
+      #f5f5f5 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite linear;
+  }
+  
+  // Эффект появления при загрузке изображения
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out;
+  
+  &.loaded {
+    opacity: 1;
+  }
+  
+  &.error {
+    opacity: 0.6;
+    background-color: #f5f5f5;
+    min-height: 100px;
+    
+    &::after {
+      content: "Изображение недоступно";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,0.7);
+      color: #666;
+      font-size: 14px;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+// Стиль для UI изображений
+.ui-image {
+  &:not([src]) {
+    min-height: 150px;
+    background-color: #f5f5f5;
+  }
+} 

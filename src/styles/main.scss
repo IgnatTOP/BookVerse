@@ -1,0 +1,190 @@
+@use 'base/reset';
+@use 'base/variables' as *;
+@use 'base/mixins' as *;
+@use 'themes/themes';
+@use 'components/image-loading';
+
+// Загрузка Inter var шрифта и Playfair Display для акцентных элементов
+@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: $font-family-primary;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  --page-padding: clamp(24px, 5vw, 80px);
+  --section-spacing: clamp(48px, 8vw, 120px);
+  --content-width: 1320px;
+  --gutter: clamp(16px, 3vw, 32px);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color $transition-fast, transform 0.2s ease;
+  
+  &:hover {
+    color: var(--color-primary-light);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+button, 
+input, 
+select, 
+textarea {
+  font-family: inherit;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.page {
+  padding: var(--page-padding) 0 calc(var(--page-padding) * 1.5);
+  min-height: calc(100vh - 76px);
+  
+  &__title {
+    font-family: 'Playfair Display', $font-family-heading;
+    font-size: clamp($font-size-xl, 5vw, $font-size-xxxl);
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background-color: var(--color-secondary);
+      border-radius: 2px;
+    }
+    
+    @include respond-to(md) {
+      margin-bottom: $spacing-xl;
+    }
+  }
+}
+
+// Grid system
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  
+  &--no-gap {
+    gap: 0;
+  }
+  
+  @include respond-to(sm) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+// Animations
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Utilities
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+} 
